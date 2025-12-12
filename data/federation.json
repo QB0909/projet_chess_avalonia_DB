@@ -1,0 +1,36 @@
+{
+  "Joueurs": [
+    {
+      "Id": 1,
+      "Nom": "Kasparov",
+      "Prenom": "Garry",
+      "ClassementElo": 2800
+    },
+    {
+      "Id": 2,
+      "Nom": "Carlsen",
+      "Prenom": "Magnus",
+      "ClassementElo": 2830
+    },
+    {
+      "Id": 3,
+      "Nom": "u",
+      "Prenom": "iu",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 4,
+      "Nom": "o",
+      "Prenom": "iii",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 5,
+      "Nom": "l",
+      "Prenom": "o",
+      "ClassementElo": 1200
+    }
+  ],
+  "Competitions": [],
+  "Parties": []
+}

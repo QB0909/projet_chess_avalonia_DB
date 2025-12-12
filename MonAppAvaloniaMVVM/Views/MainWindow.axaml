@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MonAppAvaloniaMVVM.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MonAppAvaloniaMVVM.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Gestion Fédération d'Échecs">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <TabControl>
+        <TabItem Header="Joueurs">
+            <Grid ColumnDefinitions="*, 2*" Margin="15">
+                <!-- Colonne de gauche: Liste des Joueurs -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Liste des Joueurs" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding Joueurs}" SelectedItem="{Binding SelectedJoueur}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,2">
+                                    <Grid ColumnDefinitions="*, Auto" Width="200">
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Prenom}" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Nom}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <TextBlock Grid.Column="1" Text="{Binding ClassementElo}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+                <!-- Colonne de droite: Détails du Joueur et Actions -->
+                <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                    <TextBlock Text="Détails du Joueur" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto" Margin="0,0,0,20">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Prénom:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedJoueur.Prenom}" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedJoueur.Nom}" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="ELO:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedJoueur.ClassementElo}" Margin="0,0,0,0"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Nouveau Joueur" Command="{Binding NouveauJoueurCommand}"/>
+                        <Button Content="Supprimer Joueur" Command="{Binding SupprimerJoueurCommand}"/>
+                        <Button Content="Sauvegarder Tout" Command="{Binding SauvegarderCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Compétitions">
+            <TextBlock Text="Contenu de la gestion des compétitions viendra ici." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </TabItem>
+    </TabControl>
+
+</Window>

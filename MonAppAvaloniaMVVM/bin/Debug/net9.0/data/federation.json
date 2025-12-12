@@ -1,0 +1,42 @@
+{
+  "Joueurs": [
+    {
+      "Id": 1,
+      "Nom": "Kasparov",
+      "Prenom": "Garry",
+      "ClassementElo": 2800
+    },
+    {
+      "Id": 2,
+      "Nom": "Carlsenii",
+      "Prenom": "Magnuskk",
+      "ClassementElo": 2832
+    },
+    {
+      "Id": 3,
+      "Nom": "ggm",
+      "Prenom": "fbij,h,i",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 4,
+      "Nom": "jv",
+      "Prenom": "uv",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 5,
+      "Nom": "bui",
+      "Prenom": "fft",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 6,
+      "Nom": "efz",
+      "Prenom": "fzf",
+      "ClassementElo": 1200
+    }
+  ],
+  "Competitions": [],
+  "Parties": []
+}
