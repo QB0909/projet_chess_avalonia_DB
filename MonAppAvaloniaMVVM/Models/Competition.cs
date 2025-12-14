@@ -1,12 +1,19 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MonAppAvaloniaMVVM.Models
 {
-    public class Competition
+    public partial class Competition : ObservableObject
     {
-        public int Id { get; set; }
-        public string? Nom { get; set; }
+        [ObservableProperty]
+        private int _id;
+
+        [ObservableProperty]
+        private string? _nom;
+
         // Liste des identifiants des parties jouées dans cette compétition
-        public List<int> IdsParties { get; set; } = new List<int>();
+        [ObservableProperty]
+        private ObservableCollection<int> _idsParties = new ObservableCollection<int>();
     }
 }

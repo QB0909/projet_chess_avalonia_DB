@@ -37,6 +37,29 @@
       "ClassementElo": 1200
     }
   ],
-  "Competitions": [],
-  "Parties": []
+  "Competitions": [
+    {
+      "Id": 2,
+      "Nom": "Open de France",
+      "IdsParties": []
+    },
+    {
+      "Id": 3,
+      "Nom": "hhhhgggg",
+      "IdsParties": []
+    },
+    {
+      "Id": 4,
+      "Nom": "ffhuf",
+      "IdsParties": []
+    }
+  ],
+  "Parties": [
+    {
+      "Id": 2,
+      "IdJoueurBlancs": 5,
+      "IdJoueurNoirs": 6,
+      "Resultat": 3
+    }
+  ]
 }

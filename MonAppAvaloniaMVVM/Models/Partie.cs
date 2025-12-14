@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace MonAppAvaloniaMVVM.Models
 {
     // Énumération pour les résultats possibles d'une partie
@@ -9,12 +11,20 @@ namespace MonAppAvaloniaMVVM.Models
         Nulle
     }
 
-    public class Partie
+    public partial class Partie : ObservableObject
     {
-        public int Id { get; set; }
-        public int IdJoueurBlancs { get; set; }
-        public int IdJoueurNoirs { get; set; }
-        public ResultatPartie Resultat { get; set; }
+        [ObservableProperty]
+        private int _id;
+
+        [ObservableProperty]
+        private int _idJoueurBlancs;
+
+        [ObservableProperty]
+        private int _idJoueurNoirs;
+
+        [ObservableProperty]
+        private ResultatPartie _resultat;
+        
         // On pourrait ajouter plus de détails ici plus tard, comme la liste des coups (en notation PGN par exemple)
     }
 }

@@ -72,3 +72,4 @@ C:\Users\32497\Desktop\test\MonAppAvaloniaMVVM\obj\Debug\net9.0\refint\MonAppAva
 C:\Users\32497\Desktop\test\MonAppAvaloniaMVVM\obj\Debug\net9.0\MonAppAvaloniaMVVM.pdb
 C:\Users\32497\Desktop\test\MonAppAvaloniaMVVM\obj\Debug\net9.0\MonAppAvaloniaMVVM.genruntimeconfig.cache
 C:\Users\32497\Desktop\test\MonAppAvaloniaMVVM\obj\Debug\net9.0\ref\MonAppAvaloniaMVVM.dll
+C:\Users\32497\Desktop\test\MonAppAvaloniaMVVM\obj\Debug\net9.0\MonAppAvaloniaMVVM.sourcelink.json

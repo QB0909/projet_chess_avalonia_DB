@@ -1,4 +1,4 @@
-﻿using MonAppAvaloniaMVVM.Models;
+using MonAppAvaloniaMVVM.Models;
 using MonAppAvaloniaMVVM.Services;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -15,18 +15,55 @@ public partial class MainWindowViewModel : ViewModelBase
     // Propriété pour contenir toutes les données de l'application
     public Donnees Donnees { get; set; }
 
-    // Collection observable pour la liste des joueurs, qui sera liée à l'interface utilisateur
+    // Joueurs
     public ObservableCollection<Joueur> Joueurs { get; set; }
-
-    // Propriété pour le joueur actuellement sélectionné dans la liste
     [ObservableProperty]
     private Joueur? _selectedJoueur;
-
-    // Cette méthode est appelée automatiquement par le MVVM Toolkit lorsque la propriété SelectedJoueur change.
     partial void OnSelectedJoueurChanged(Joueur? value)
     {
-        // On notifie à la commande que son état d'exécution a peut-être changé.
         SupprimerJoueurCommand.NotifyCanExecuteChanged();
+    }
+
+    // Compétitions
+    public ObservableCollection<Competition> Competitions { get; set; }
+    [ObservableProperty]
+    private Competition? _selectedCompetition;
+    partial void OnSelectedCompetitionChanged(Competition? value)
+    {
+        SupprimerCompetitionCommand.NotifyCanExecuteChanged();
+    }
+
+    // Parties
+    public ObservableCollection<Partie> Parties { get; set; }
+    [ObservableProperty]
+    private Partie? _selectedPartie;
+    partial void OnSelectedPartieChanged(Partie? value)
+    {
+        SupprimerPartieCommand.NotifyCanExecuteChanged();
+        // Mettre à jour les ComboBoxes des joueurs lorsque la partie sélectionnée change
+        SelectedJoueurBlancComboBox = Joueurs.FirstOrDefault(j => j.Id == value?.IdJoueurBlancs);
+        SelectedJoueurNoirComboBox = Joueurs.FirstOrDefault(j => j.Id == value?.IdJoueurNoirs);
+    }
+
+    // Propriétés pour la sélection des joueurs dans les ComboBoxes de la partie
+    [ObservableProperty]
+    private Joueur? _selectedJoueurBlancComboBox;
+    partial void OnSelectedJoueurBlancComboBoxChanged(Joueur? value)
+    {
+        if (SelectedPartie != null)
+        {
+            SelectedPartie.IdJoueurBlancs = value?.Id ?? 0;
+        }
+    }
+
+    [ObservableProperty]
+    private Joueur? _selectedJoueurNoirComboBox;
+    partial void OnSelectedJoueurNoirComboBoxChanged(Joueur? value)
+    {
+        if (SelectedPartie != null)
+        {
+            SelectedPartie.IdJoueurNoirs = value?.Id ?? 0;
+        }
     }
 
     public MainWindowViewModel()
@@ -34,21 +71,49 @@ public partial class MainWindowViewModel : ViewModelBase
         _dataService = new JsonDataService("federation.json");
         Donnees = _dataService.ChargerDonnees();
 
-        // Si aucune donnée n'est chargée (premier lancement), on ajoute des exemples.
+        // Initialisation des joueurs
         if (!Donnees.Joueurs.Any())
         {
             Donnees.Joueurs.Add(new Joueur { Id = GenererProchainIdJoueur(), Nom = "Kasparov", Prenom = "Garry", ClassementElo = 2800 });
             Donnees.Joueurs.Add(new Joueur { Id = GenererProchainIdJoueur(), Nom = "Carlsen", Prenom = "Magnus", ClassementElo = 2830 });
-            
-            // Sauvegarde immédiate des données d'exemple
+        }
+        Joueurs = new ObservableCollection<Joueur>(Donnees.Joueurs);
+
+        // Initialisation des compétitions
+        if (!Donnees.Competitions.Any())
+        {
+            Donnees.Competitions.Add(new Competition { Id = GenererProchainIdCompetition(), Nom = "Championnat de Paris 2025" });
+            Donnees.Competitions.Add(new Competition { Id = GenererProchainIdCompetition(), Nom = "Open de France" });
+        }
+        Competitions = new ObservableCollection<Competition>(Donnees.Competitions);
+
+        // Initialisation des parties
+        if (!Donnees.Parties.Any() && Donnees.Joueurs.Count >= 2) // Seulement si au moins deux joueurs existent
+        {
+            Donnees.Parties.Add(new Partie { 
+                Id = GenererProchainIdPartie(), 
+                IdJoueurBlancs = Donnees.Joueurs[0].Id, 
+                IdJoueurNoirs = Donnees.Joueurs[1].Id, 
+                Resultat = ResultatPartie.VictoireBlancs 
+            });
+        }
+        Parties = new ObservableCollection<Partie>(Donnees.Parties);
+        
+        // Sauvegarde immédiate des données d'exemple si elles viennent d'être créées
+        if (!Donnees.Joueurs.Any() || !Donnees.Competitions.Any() || !Donnees.Parties.Any())
+        {
             _dataService.SauvegarderDonnees(Donnees);
         }
 
-        // Initialise la collection observable avec les données chargées/créées
-        Joueurs = new ObservableCollection<Joueur>(Donnees.Joueurs);
+        // Initialiser les sélections des ComboBoxes des joueurs de partie après le chargement des parties et des joueurs
+        if (SelectedPartie != null)
+        {
+            SelectedJoueurBlancComboBox = Joueurs.FirstOrDefault(j => j.Id == SelectedPartie.IdJoueurBlancs);
+            SelectedJoueurNoirComboBox = Joueurs.FirstOrDefault(j => j.Id == SelectedPartie.IdJoueurNoirs);
+        }
     }
 
-    // Commande pour ajouter un nouveau joueur
+    // Commandes Joueurs
     [RelayCommand]
     private void NouveauJoueur()
     {
@@ -58,7 +123,6 @@ public partial class MainWindowViewModel : ViewModelBase
         SelectedJoueur = nouveauJoueur; // Sélectionne le nouveau joueur pour édition
     }
 
-    // Commande pour supprimer le joueur sélectionné
     [RelayCommand(CanExecute = nameof(CanSupprimerJoueur))]
     private void SupprimerJoueur()
     {
@@ -66,25 +130,84 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             Donnees.Joueurs.Remove(SelectedJoueur);
             Joueurs.Remove(SelectedJoueur);
-            SelectedJoueur = null; // Désélectionne le joueur
+            SelectedJoueur = null;
         }
     }
-
-    // Détermine si la commande SupprimerJoueur peut être exécutée
     private bool CanSupprimerJoueur() => SelectedJoueur != null && SelectedJoueur.Id != 0;
 
-    // Commande pour sauvegarder toutes les données
+
+    // Commandes Compétitions
+    [RelayCommand]
+    private void NouveauCompetition()
+    {
+        var nouvelleCompetition = new Competition { Id = GenererProchainIdCompetition(), Nom = "Nouvelle Compétition" };
+        Donnees.Competitions.Add(nouvelleCompetition);
+        Competitions.Add(nouvelleCompetition);
+        SelectedCompetition = nouvelleCompetition;
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSupprimerCompetition))]
+    private void SupprimerCompetition()
+    {
+        if (SelectedCompetition != null)
+        {
+            Donnees.Competitions.Remove(SelectedCompetition);
+            Competitions.Remove(SelectedCompetition);
+            SelectedCompetition = null;
+        }
+    }
+    private bool CanSupprimerCompetition() => SelectedCompetition != null && SelectedCompetition.Id != 0;
+
+    // Commandes Parties
+    [RelayCommand]
+    private void NouveauPartie()
+    {
+        var nouvellePartie = new Partie { Id = GenererProchainIdPartie(), Resultat = ResultatPartie.NonTermine };
+        Donnees.Parties.Add(nouvellePartie);
+        Parties.Add(nouvellePartie);
+        SelectedPartie = nouvellePartie;
+        // Initialiser les ComboBoxes des joueurs pour la nouvelle partie
+        SelectedJoueurBlancComboBox = null;
+        SelectedJoueurNoirComboBox = null;
+    }
+
+    [RelayCommand(CanExecute = nameof(CanSupprimerPartie))]
+    private void SupprimerPartie()
+    {
+        if (SelectedPartie != null)
+        {
+            Donnees.Parties.Remove(SelectedPartie);
+            Parties.Remove(SelectedPartie);
+            SelectedPartie = null;
+        }
+    }
+    private bool CanSupprimerPartie() => SelectedPartie != null && SelectedPartie.Id != 0;
+
+
+    // Commande globale de sauvegarde
     [RelayCommand]
     private void Sauvegarder()
     {
         _dataService.SauvegarderDonnees(Donnees);
-        // Vous pouvez ajouter une notification à l'utilisateur ici (ex: "Données sauvegardées !")
-        Console.WriteLine("Données sauvegardées !"); // Pour le débogage
+        Console.WriteLine("Données sauvegardées !");
     }
 
-    // Génère un ID unique pour un nouveau joueur
+    // Générateurs d'ID
     private int GenererProchainIdJoueur()
     {
         return Donnees.Joueurs.Any() ? Donnees.Joueurs.Max(j => j.Id) + 1 : 1;
     }
+
+    private int GenererProchainIdCompetition()
+    {
+        return Donnees.Competitions.Any() ? Donnees.Competitions.Max(c => c.Id) + 1 : 1;
+    }
+
+    private int GenererProchainIdPartie()
+    {
+        return Donnees.Parties.Any() ? Donnees.Parties.Max(p => p.Id) + 1 : 1;
+    }
+
+    // Propriété pour l'énumération des résultats de partie
+    public ObservableCollection<ResultatPartie> ResultatsPartiePossibles { get; } = new ObservableCollection<ResultatPartie>(Enum.GetValues<ResultatPartie>());
 }
