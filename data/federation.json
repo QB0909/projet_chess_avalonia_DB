@@ -4,25 +4,25 @@
       "Id": 1,
       "Nom": "Kasparov",
       "Prenom": "Garry",
-      "ClassementElo": 2800
+      "ClassementElo": 2810
     },
     {
       "Id": 2,
       "Nom": "Carlsen",
       "Prenom": "Magnus",
-      "ClassementElo": 2830
+      "ClassementElo": 2820
     },
     {
       "Id": 3,
       "Nom": "u",
       "Prenom": "iu",
-      "ClassementElo": 1200
+      "ClassementElo": 1169
     },
     {
       "Id": 4,
       "Nom": "o",
       "Prenom": "iii",
-      "ClassementElo": 1200
+      "ClassementElo": 1231
     },
     {
       "Id": 5,
@@ -48,7 +48,43 @@
       "Id": 3,
       "IdJoueurBlancs": 1,
       "IdJoueurNoirs": 2,
-      "Resultat": 3
+      "Resultat": 3,
+      "IdCompetition": 0
+    },
+    {
+      "Id": 4,
+      "IdJoueurBlancs": 4,
+      "IdJoueurNoirs": 3,
+      "Resultat": 1,
+      "IdCompetition": 0
+    },
+    {
+      "Id": 5,
+      "IdJoueurBlancs": 0,
+      "IdJoueurNoirs": 0,
+      "Resultat": 0,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 6,
+      "IdJoueurBlancs": 0,
+      "IdJoueurNoirs": 0,
+      "Resultat": 0,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 7,
+      "IdJoueurBlancs": 0,
+      "IdJoueurNoirs": 0,
+      "Resultat": 0,
+      "IdCompetition": 3
+    },
+    {
+      "Id": 8,
+      "IdJoueurBlancs": 4,
+      "IdJoueurNoirs": 5,
+      "Resultat": 1,
+      "IdCompetition": 3
     }
   ]
 }

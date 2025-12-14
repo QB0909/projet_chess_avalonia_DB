@@ -24,6 +24,9 @@ namespace MonAppAvaloniaMVVM.Models
 
         [ObservableProperty]
         private ResultatPartie _resultat;
+
+        [ObservableProperty]
+        private int _idCompetition;
         
         // On pourrait ajouter plus de détails ici plus tard, comme la liste des coups (en notation PGN par exemple)
     }
