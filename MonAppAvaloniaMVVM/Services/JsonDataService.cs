@@ -1,8 +1,8 @@
 using System.IO;
 using System.Text.Json;
-using MonAppAvaloniaMVVM.Models;
+using CHESS.Models;
 
-namespace MonAppAvaloniaMVVM.Services
+namespace CHESS.Services
 {
     public class JsonDataService
     {

@@ -59,7 +59,22 @@
       "Id": 2,
       "IdJoueurBlancs": 5,
       "IdJoueurNoirs": 6,
-      "Resultat": 3
+      "Resultat": 3,
+      "IdCompetition": 0
+    },
+    {
+      "Id": 3,
+      "IdJoueurBlancs": 2,
+      "IdJoueurNoirs": 6,
+      "Resultat": 0,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 4,
+      "IdJoueurBlancs": 3,
+      "IdJoueurNoirs": 4,
+      "Resultat": 2,
+      "IdCompetition": 2
     }
   ]
 }

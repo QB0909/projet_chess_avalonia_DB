@@ -4,10 +4,10 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using MonAppAvaloniaMVVM.ViewModels;
-using MonAppAvaloniaMVVM.Views;
+using CHESS.ViewModels;
+using CHESS.Views;
 
-namespace MonAppAvaloniaMVVM;
+namespace CHESS;
 
 public partial class App : Application
 {

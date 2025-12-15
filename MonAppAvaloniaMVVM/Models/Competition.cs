@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace MonAppAvaloniaMVVM.Models
+namespace CHESS.Models
 {
     public partial class Competition : ObservableObject
     {

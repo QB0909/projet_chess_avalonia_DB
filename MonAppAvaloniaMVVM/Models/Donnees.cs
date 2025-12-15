@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MonAppAvaloniaMVVM.Models
+namespace CHESS.Models
 {
     public class Donnees
     {

@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace MonAppAvaloniaMVVM.Views;
+namespace CHESS.Views;
 
 public partial class MainWindow : Window
 {

@@ -2,7 +2,7 @@ using Avalonia.Data.Converters;
 using System;
 using System.Globalization;
 
-namespace MonAppAvaloniaMVVM.Converters
+namespace CHESS.Converters
 {
     public class IsNotNullConverter : IValueConverter
     {

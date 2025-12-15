@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace MonAppAvaloniaMVVM.Models
+namespace CHESS.Models
 {
     public partial class Joueur : ObservableObject
     {

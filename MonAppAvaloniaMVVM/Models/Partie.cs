@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace MonAppAvaloniaMVVM.Models
+namespace CHESS.Models
 {
     // Énumération pour les résultats possibles d'une partie
     public enum ResultatPartie

@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace MonAppAvaloniaMVVM;
+namespace CHESS;
 
 sealed class Program
 {
