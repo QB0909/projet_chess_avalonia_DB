@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AiJQ6I+7pxI=",
+  "dgSpecHash": "gdG9B+sBq5Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\32497\\Desktop\\test\\MonAppAvaloniaMVVM\\CHESS.csproj",
+  "projectFilePath": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\CHESS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\32497\\.nuget\\packages\\avalonia\\11.3.9\\avalonia.11.3.9.nupkg.sha512",
     "C:\\Users\\32497\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.25547.20250602\\avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512",

@@ -9,11 +9,22 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="Gestion Fédération d'Échecs">
 
+    <Window.Background>
+        <ImageBrush Source="avares://CHESS/Assets/image.echec.png"
+                    Stretch="UniformToFill"/>
+    </Window.Background>
+
+    <Window.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Styles>
+
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TabControl>
+    <TabControl Background="#80000000">
         <TabItem Header="Joueurs">
             <Grid ColumnDefinitions="*, 2*" Margin="15">
                 <!-- Colonne de gauche: Liste des Joueurs -->

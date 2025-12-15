@@ -1470,11 +1470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\32497\\Desktop\\test\\MonAppAvaloniaMVVM\\CHESS.csproj",
+      "projectUniqueName": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\CHESS.csproj",
       "projectName": "CHESS",
-      "projectPath": "C:\\Users\\32497\\Desktop\\test\\MonAppAvaloniaMVVM\\CHESS.csproj",
+      "projectPath": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\CHESS.csproj",
       "packagesPath": "C:\\Users\\32497\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\32497\\Desktop\\test\\MonAppAvaloniaMVVM\\obj\\",
+      "outputPath": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\32497\\AppData\\Roaming\\NuGet\\NuGet.Config"
