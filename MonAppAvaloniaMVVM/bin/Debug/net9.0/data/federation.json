@@ -4,37 +4,37 @@
       "Id": 1,
       "Nom": "Kasparov",
       "Prenom": "Garry",
-      "ClassementElo": 2800
+      "ClassementElo": 2456
     },
     {
       "Id": 2,
       "Nom": "Carlsenii",
       "Prenom": "Magnuskk",
-      "ClassementElo": 2832
+      "ClassementElo": 3176
     },
     {
       "Id": 3,
       "Nom": "ggm",
       "Prenom": "fbij,h,i",
-      "ClassementElo": 1200
+      "ClassementElo": 840
     },
     {
       "Id": 4,
       "Nom": "jv",
       "Prenom": "uv",
-      "ClassementElo": 1200
+      "ClassementElo": 1560
     },
     {
       "Id": 5,
       "Nom": "bui",
       "Prenom": "fft",
-      "ClassementElo": 1200
+      "ClassementElo": 1297
     },
     {
       "Id": 6,
       "Nom": "efz",
       "Prenom": "fzf",
-      "ClassementElo": 1200
+      "ClassementElo": 1103
     }
   ],
   "Competitions": [
@@ -74,6 +74,34 @@
       "IdJoueurBlancs": 3,
       "IdJoueurNoirs": 4,
       "Resultat": 2,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 5,
+      "IdJoueurBlancs": 1,
+      "IdJoueurNoirs": 5,
+      "Resultat": 1,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 6,
+      "IdJoueurBlancs": 1,
+      "IdJoueurNoirs": 2,
+      "Resultat": 2,
+      "IdCompetition": 3
+    },
+    {
+      "Id": 7,
+      "IdJoueurBlancs": 5,
+      "IdJoueurNoirs": 6,
+      "Resultat": 1,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 8,
+      "IdJoueurBlancs": 4,
+      "IdJoueurNoirs": 2,
+      "Resultat": 1,
       "IdCompetition": 2
     }
   ]
