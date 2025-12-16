@@ -10,8 +10,29 @@ namespace CHESS.Services
 
         public JsonDataService(string fileName)
         {
-            // Le chemin vers le fichier de sauvegarde est dans le dossier de l'application
-            // pour éviter de polluer le bureau ou les documents de l'utilisateur.
+            // Cherche un fichier "data/{fileName}" en remontant l'arborescence
+            // Cela permet d'utiliser le fichier de données du projet (projet_chess_avalonia_DB/data/federation.json)
+            // si présent, sinon on crée/utilise "data" dans le répertoire courant.
+            string? found = null;
+            var dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            while (dir != null)
+            {
+                var candidate = Path.Combine(dir.FullName, "data", fileName);
+                if (File.Exists(candidate))
+                {
+                    found = candidate;
+                    break;
+                }
+                dir = dir.Parent;
+            }
+
+            if (found != null)
+            {
+                _filePath = found;
+                return;
+            }
+
+            // Sinon utiliser/créer data/ dans le répertoire courant
             string appDataPath = Path.Combine(Directory.GetCurrentDirectory(), "data");
             if (!Directory.Exists(appDataPath))
             {

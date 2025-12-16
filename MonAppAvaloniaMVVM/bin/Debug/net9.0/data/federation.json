@@ -4,37 +4,31 @@
       "Id": 1,
       "Nom": "Kasparov",
       "Prenom": "Garry",
-      "ClassementElo": 2456
+      "ClassementElo": 2360
     },
     {
       "Id": 2,
-      "Nom": "Carlsenii",
+      "Nom": "Carlsen",
       "Prenom": "Magnuskk",
-      "ClassementElo": 3176
+      "ClassementElo": 3112
     },
     {
-      "Id": 3,
-      "Nom": "ggm",
-      "Prenom": "fbij,h,i",
-      "ClassementElo": 840
+      "Id": 7,
+      "Nom": "Claude",
+      "Prenom": "Jean ",
+      "ClassementElo": 69
     },
     {
-      "Id": 4,
-      "Nom": "jv",
-      "Prenom": "uv",
-      "ClassementElo": 1560
+      "Id": 8,
+      "Nom": "vandededede",
+      "Prenom": "andr\u00E9",
+      "ClassementElo": 112
     },
     {
-      "Id": 5,
-      "Nom": "bui",
-      "Prenom": "fft",
-      "ClassementElo": 1297
-    },
-    {
-      "Id": 6,
-      "Nom": "efz",
-      "Prenom": "fzf",
-      "ClassementElo": 1103
+      "Id": 9,
+      "Nom": "tor",
+      "Prenom": "vic",
+      "ClassementElo": 277
     }
   ],
   "Competitions": [
@@ -63,27 +57,6 @@
       "IdCompetition": 0
     },
     {
-      "Id": 3,
-      "IdJoueurBlancs": 2,
-      "IdJoueurNoirs": 6,
-      "Resultat": 0,
-      "IdCompetition": 2
-    },
-    {
-      "Id": 4,
-      "IdJoueurBlancs": 3,
-      "IdJoueurNoirs": 4,
-      "Resultat": 2,
-      "IdCompetition": 2
-    },
-    {
-      "Id": 5,
-      "IdJoueurBlancs": 1,
-      "IdJoueurNoirs": 5,
-      "Resultat": 1,
-      "IdCompetition": 2
-    },
-    {
       "Id": 6,
       "IdJoueurBlancs": 1,
       "IdJoueurNoirs": 2,
@@ -92,17 +65,153 @@
     },
     {
       "Id": 7,
-      "IdJoueurBlancs": 5,
-      "IdJoueurNoirs": 6,
+      "IdJoueurBlancs": 1,
+      "IdJoueurNoirs": 2,
       "Resultat": 1,
       "IdCompetition": 2
     },
     {
       "Id": 8,
-      "IdJoueurBlancs": 4,
+      "IdJoueurBlancs": 7,
+      "IdJoueurNoirs": 8,
+      "Resultat": 2,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 9,
+      "IdJoueurBlancs": 9,
+      "IdJoueurNoirs": 8,
+      "Resultat": 1,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 10,
+      "IdJoueurBlancs": 9,
       "IdJoueurNoirs": 2,
       "Resultat": 1,
       "IdCompetition": 2
+    },
+    {
+      "Id": 11,
+      "IdJoueurBlancs": 1,
+      "IdJoueurNoirs": 9,
+      "Resultat": 2,
+      "IdCompetition": 2
+    }
+  ],
+  "EloHistorique": [
+    {
+      "Id": 1,
+      "Records": [
+        {
+          "PartieId": 6,
+          "Elo": 2408
+        },
+        {
+          "PartieId": 7,
+          "Elo": 2424
+        },
+        {
+          "PartieId": 7,
+          "Elo": 2392
+        },
+        {
+          "PartieId": 11,
+          "Elo": 2360
+        }
+      ]
+    },
+    {
+      "Id": 1,
+      "Records": []
+    },
+    {
+      "Id": 2,
+      "Records": [
+        {
+          "PartieId": 6,
+          "Elo": 3144
+        },
+        {
+          "PartieId": 10,
+          "Elo": 3112
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Records": []
+    },
+    {
+      "Id": 3,
+      "Records": []
+    },
+    {
+      "Id": 3,
+      "Records": []
+    },
+    {
+      "Id": 4,
+      "Records": []
+    },
+    {
+      "Id": 4,
+      "Records": []
+    },
+    {
+      "Id": 5,
+      "Records": []
+    },
+    {
+      "Id": 5,
+      "Records": []
+    },
+    {
+      "Id": 6,
+      "Records": []
+    },
+    {
+      "Id": 6,
+      "Records": []
+    },
+    {
+      "Id": 7,
+      "Records": [
+        {
+          "PartieId": 8,
+          "Elo": 69
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Records": [
+        {
+          "PartieId": 8,
+          "Elo": 125
+        },
+        {
+          "PartieId": 9,
+          "Elo": 112
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Records": [
+        {
+          "PartieId": 9,
+          "Elo": 213
+        },
+        {
+          "PartieId": 10,
+          "Elo": 245
+        },
+        {
+          "PartieId": 11,
+          "Elo": 277
+        }
+      ]
     }
   ]
 }
