@@ -1,9 +1,11 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:CHESS.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:CHESS.ViewModels"
+    xmlns:conv="using:CHESS.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Name="RootWindow"
         x:Class="CHESS.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -23,6 +25,10 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
+    <Window.Resources>
+        <conv:IdToNameConverter x:Key="IdToNameConverter"/>
+    </Window.Resources>
 
     <TabControl Background="#80000000">
         <TabItem Header="Joueurs">
@@ -140,17 +146,31 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Partie: "/>
+                                        <!-- <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Partie: "/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Id}" FontWeight="Bold"/>
                                         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
                                             <TextBlock Text="Comp: "/>
                                             <TextBlock Text="{Binding IdCompetition}" FontWeight="SemiBold"/>
-                                        </StackPanel>
+                                        </StackPanel> -->
                                         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
                                             <TextBlock Text="Blancs: "/>
-                                            <TextBlock Text="{Binding IdJoueurBlancs}" FontWeight="SemiBold"/>
+                                            <TextBlock FontWeight="SemiBold">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource IdToNameConverter}">
+                                                        <Binding Path="IdJoueurBlancs" />
+                                                        <Binding Path="DataContext.Joueurs" ElementName="RootWindow" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
                                             <TextBlock Text=" vs Noirs: " Margin="10,0,0,0"/>
-                                            <TextBlock Text="{Binding IdJoueurNoirs}" FontWeight="SemiBold"/>
+                                            <TextBlock FontWeight="SemiBold">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource IdToNameConverter}">
+                                                        <Binding Path="IdJoueurNoirs" />
+                                                        <Binding Path="DataContext.Joueurs" ElementName="RootWindow" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
                                         </StackPanel>
                                         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
                                             <TextBlock Text="Résultat: "/>

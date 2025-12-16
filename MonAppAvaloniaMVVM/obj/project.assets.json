@@ -1465,19 +1465,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\32497\\.nuget\\packages\\": {}
+    "C:\\Users\\theog\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\CHESS.csproj",
+      "projectUniqueName": "C:\\Users\\theog\\Documents\\POO\\projet_chess_avalonia_DB\\projet_chess_avalonia_DB\\MonAppAvaloniaMVVM\\CHESS.csproj",
       "projectName": "CHESS",
-      "projectPath": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\CHESS.csproj",
-      "packagesPath": "C:\\Users\\32497\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\32497\\Desktop\\Projet-CHESS.DB.F\\MonAppAvaloniaMVVM\\obj\\",
+      "projectPath": "C:\\Users\\theog\\Documents\\POO\\projet_chess_avalonia_DB\\projet_chess_avalonia_DB\\MonAppAvaloniaMVVM\\CHESS.csproj",
+      "packagesPath": "C:\\Users\\theog\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\theog\\Documents\\POO\\projet_chess_avalonia_DB\\projet_chess_avalonia_DB\\MonAppAvaloniaMVVM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\32497\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\theog\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
