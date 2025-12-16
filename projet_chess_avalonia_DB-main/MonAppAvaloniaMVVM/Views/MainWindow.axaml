@@ -1,0 +1,245 @@
+<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:CHESS.ViewModels"
+    xmlns:conv="using:CHESS.Converters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Name="RootWindow"
+        x:Class="CHESS.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Gestion Fédération d'Échecs">
+
+    <Window.Background>
+        <ImageBrush Source="avares://CHESS/Assets/image.echec.png"
+                    Stretch="UniformToFill"/>
+    </Window.Background>
+
+    <Window.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Styles>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Resources>
+        <conv:IdToNameConverter x:Key="IdToNameConverter"/>
+    </Window.Resources>
+
+    <TabControl Background="#80000000">
+        <TabItem Header="Joueurs">
+            <Grid ColumnDefinitions="*, 2*" Margin="15">
+                <!-- Colonne de gauche: Liste des Joueurs -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Liste des Joueurs" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding Joueurs}" SelectedItem="{Binding SelectedJoueur}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,2">
+                                    <Grid ColumnDefinitions="*, Auto" Width="200">
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Id, StringFormat='({0}) '}" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Prenom}" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Nom}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <TextBlock Grid.Column="1" Text="{Binding ClassementElo}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+                <!-- Colonne de droite: Détails du Joueur et Actions -->
+                <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                    <TextBlock Text="Détails du Joueur" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto" Margin="0,0,0,20">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Prénom:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedJoueur.Prenom}" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedJoueur.Nom}" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="ELO:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedJoueur.ClassementElo}" Margin="0,0,0,0"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Nouveau Joueur" Command="{Binding NouveauJoueurCommand}"/>
+                        <Button Content="Supprimer Joueur" Command="{Binding SupprimerJoueurCommand}"/>
+                        <Button Content="Sauvegarder Tout" Command="{Binding SauvegarderCommand}"/>
+                        <Button Content="Calculer ELO" Command="{Binding CalculerEloCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Compétitions">
+            <Grid ColumnDefinitions="*, 2*" Margin="15">
+                <!-- Colonne de gauche: Liste des Compétitions -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Liste des Compétitions" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding Competitions}" SelectedItem="{Binding SelectedCompetition}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,2">
+                                    <Grid Width="200">
+                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+                <!-- Colonne de droite: Détails de la Compétition et Actions -->
+                <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                    <TextBlock Text="Détails de la Compétition" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto" Margin="0,0,0,20">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCompetition.Nom}" Margin="0,0,0,5"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Nouvelle Compétition" Command="{Binding NouveauCompetitionCommand}"/>
+                        <Button Content="Supprimer Compétition" Command="{Binding SupprimerCompetitionCommand}"/>
+                        <Button Content="Sauvegarder Tout" Command="{Binding SauvegarderCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Parties">
+            <Grid ColumnDefinitions="*, 2*" RowDefinitions="Auto, *" Margin="15">
+                <!-- Colonne de gauche: Filtre Compétition et Liste des Parties, Il est placé dans premiere colonne (grid.column= 0) de la grille parente -->
+                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
+                    <TextBlock Text="Compétition:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <ComboBox ItemsSource="{Binding Competitions}"
+                              SelectedItem="{Binding SelectedCompetitionFilter}"
+                              Width="150">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Nom}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="0" Grid.Row="1">
+                    <TextBlock Text="Liste des Parties" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding FilteredParties}" SelectedItem="{Binding SelectedPartie}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,2">
+                                    <Grid Width="250">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <!-- <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Partie: "/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Id}" FontWeight="Bold"/>
+                                        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                            <TextBlock Text="Comp: "/>
+                                            <TextBlock Text="{Binding IdCompetition}" FontWeight="SemiBold"/>
+                                        </StackPanel> -->
+                                        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                            <TextBlock Text="Blancs: "/>
+                                            <TextBlock FontWeight="SemiBold">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource IdToNameConverter}">
+                                                        <Binding Path="IdJoueurBlancs" />
+                                                        <Binding Path="DataContext.Joueurs" ElementName="RootWindow" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <TextBlock Text=" vs Noirs: " Margin="10,0,0,0"/>
+                                            <TextBlock FontWeight="SemiBold">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource IdToNameConverter}">
+                                                        <Binding Path="IdJoueurNoirs" />
+                                                        <Binding Path="DataContext.Joueurs" ElementName="RootWindow" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                            <TextBlock Text="Résultat: "/>
+                                            <TextBlock Text="{Binding Resultat}" FontWeight="SemiBold"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+
+                <!-- Colonne de droite: Détails de la Partie et Actions -->
+                <StackPanel Grid.Column="1" Grid.RowSpan="2" Margin="20,0,0,0">
+                    <TextBlock Text="Détails de la Partie" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto" Margin="0,0,0,20">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Compétition:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPartie.IdCompetition}" IsReadOnly="True" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Joueur Blancs:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" 
+                                  ItemsSource="{Binding Joueurs}"
+                                  SelectedItem="{Binding SelectedJoueurBlancComboBox}" Margin="0,0,0,5">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Nom}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Joueur Noirs:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <ComboBox Grid.Row="2" Grid.Column="1" 
+                                  ItemsSource="{Binding Joueurs}"
+                                  SelectedItem="{Binding SelectedJoueurNoirComboBox}" Margin="0,0,0,5">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Nom}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Résultat:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <ComboBox Grid.Row="3" Grid.Column="1" 
+                                  ItemsSource="{Binding ResultatsPartiePossibles}"
+                                  SelectedItem="{Binding SelectedPartie.Resultat}" Margin="0,0,0,0"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Nouvelle Partie" Command="{Binding NouveauPartieCommand}"/>
+                        <Button Content="Supprimer Partie" Command="{Binding SupprimerPartieCommand}"/>
+                        <Button Content="Sauvegarder Tout" Command="{Binding SauvegarderCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Statistique joueurs">
+            <Grid ColumnDefinitions="*, 2*" RowDefinitions="Auto, *" Margin="15">
+               <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
+                    <TextBlock Text="Joueur" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <ListBox ItemsSource="{Binding Joueurs}" SelectedItem="{Binding SelectedJoueur}">
+                    </ListBox>         
+                </StackPanel>        
+
+
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+
+</Window>

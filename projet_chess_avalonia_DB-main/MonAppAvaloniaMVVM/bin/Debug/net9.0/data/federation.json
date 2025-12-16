@@ -1,0 +1,80 @@
+{
+  "Joueurs": [
+    {
+      "Id": 1,
+      "Nom": "Kasparov",
+      "Prenom": "Garry",
+      "ClassementElo": 2800
+    },
+    {
+      "Id": 2,
+      "Nom": "Carlsenii",
+      "Prenom": "Magnuskk",
+      "ClassementElo": 2832
+    },
+    {
+      "Id": 3,
+      "Nom": "ggm",
+      "Prenom": "fbij,h,i",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 4,
+      "Nom": "jv",
+      "Prenom": "uv",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 5,
+      "Nom": "bui",
+      "Prenom": "fft",
+      "ClassementElo": 1200
+    },
+    {
+      "Id": 6,
+      "Nom": "efz",
+      "Prenom": "fzf",
+      "ClassementElo": 1200
+    }
+  ],
+  "Competitions": [
+    {
+      "Id": 2,
+      "Nom": "Open de France",
+      "IdsParties": []
+    },
+    {
+      "Id": 3,
+      "Nom": "hhhhgggg",
+      "IdsParties": []
+    },
+    {
+      "Id": 4,
+      "Nom": "ffhuf",
+      "IdsParties": []
+    }
+  ],
+  "Parties": [
+    {
+      "Id": 2,
+      "IdJoueurBlancs": 5,
+      "IdJoueurNoirs": 6,
+      "Resultat": 3,
+      "IdCompetition": 0
+    },
+    {
+      "Id": 3,
+      "IdJoueurBlancs": 2,
+      "IdJoueurNoirs": 6,
+      "Resultat": 0,
+      "IdCompetition": 2
+    },
+    {
+      "Id": 4,
+      "IdJoueurBlancs": 3,
+      "IdJoueurNoirs": 4,
+      "Resultat": 2,
+      "IdCompetition": 2
+    }
+  ]
+}
