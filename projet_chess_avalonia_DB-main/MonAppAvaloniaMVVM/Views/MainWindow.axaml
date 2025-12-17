@@ -147,13 +147,9 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <!-- <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Partie: "/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Partie: "/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Id}" FontWeight="Bold"/>
                                         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
-                                            <TextBlock Text="Comp: "/>
-                                            <TextBlock Text="{Binding IdCompetition}" FontWeight="SemiBold"/>
-                                        </StackPanel> -->
-                                        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
                                             <TextBlock Text="Blancs: "/>
                                             <TextBlock FontWeight="SemiBold">
                                                 <TextBlock.Text>
@@ -173,7 +169,7 @@
                                                 </TextBlock.Text>
                                             </TextBlock>
                                         </StackPanel>
-                                        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
                                             <TextBlock Text="Résultat: "/>
                                             <TextBlock Text="{Binding Resultat}" FontWeight="SemiBold"/>
                                         </StackPanel>
@@ -229,14 +225,43 @@
             </Grid>
         </TabItem>
         <TabItem Header="Statistique joueurs">
-            <Grid ColumnDefinitions="*, 2*" RowDefinitions="Auto, *" Margin="15">
-               <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
-                    <TextBlock Text="Joueur" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <ListBox ItemsSource="{Binding Joueurs}" SelectedItem="{Binding SelectedJoueur}">
-                    </ListBox>         
-                </StackPanel>        
+            <Grid ColumnDefinitions="*, 2*" Margin="15">
+                <!--   Statistiques -->
+                <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <TextBlock Text="Sélectionner un Joueur" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding Joueurs}" SelectedItem="{Binding JoueurSelectionne}" Height="200">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Nom}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
 
+                <
+                <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                    <TextBlock Text="Statistiques Détaillées" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
 
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, *" Margin="0,0,0,20">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom du joueur:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding JoueurSelectionne.Nom}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="ELO Actuel:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding JoueurSelectionne.ClassementElo}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="ELO Maximum:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding EloMaxJoueurSelectionne}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="ELO Minimum:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding EloMinJoueurSelectionne}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,0,5"/>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="ELO Moyen:" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding EloMoyenJoueurSelectionne}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,0,5"/>
+                        
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Historique ELO:" VerticalAlignment="Top" Margin="0,0,10,5"/>
+                        <ListBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding ListeEloJoueurSelectionne}" Height="150" Margin="0,0,0,5"/>
+                    </Grid>
+                </StackPanel>
             </Grid>
         </TabItem>
 

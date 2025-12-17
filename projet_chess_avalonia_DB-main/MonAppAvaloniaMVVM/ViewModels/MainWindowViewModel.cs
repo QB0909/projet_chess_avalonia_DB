@@ -2,6 +2,7 @@ using CHESS.Models;
 using CHESS.Services;
 using System.Collections.ObjectModel;
 using System.Linq;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 
@@ -14,6 +15,38 @@ public partial class MainWindowViewModel : ViewModelBase
     
     // Propriété pour contenir toutes les données de l'application
     public Donnees Donnees { get; set; }
+
+    
+    // Ici afficher ses statistiques du joueurSelectionne
+    [ObservableProperty]
+    private Joueur? joueurSelectionne;
+
+    
+    public ObservableCollection<int> ListeEloJoueurSelectionne => JoueurSelectionne?.ListeElo != null
+        ? new ObservableCollection<int>(JoueurSelectionne.ListeElo)
+        : new ObservableCollection<int>();
+
+    public string EloMaxJoueurSelectionne => JoueurSelectionne?.ListeElo?.Any() == true
+        ? JoueurSelectionne.ListeElo.Max().ToString()
+        : "RIEN";
+
+    public string EloMinJoueurSelectionne => JoueurSelectionne?.ListeElo?.Any() == true
+        ? JoueurSelectionne.ListeElo.Min().ToString()
+        : "RIEN";
+
+    public string EloMoyenJoueurSelectionne => JoueurSelectionne?.ListeElo?.Any() == true
+        ? JoueurSelectionne.ListeElo.Average().ToString("F0") // "F0" pour aucun chiffre après la virgule
+        : "RIEN";
+
+    
+    partial void OnJoueurSelectionneChanged(Joueur? value)
+    {
+        OnPropertyChanged(nameof(ListeEloJoueurSelectionne));
+        OnPropertyChanged(nameof(EloMaxJoueurSelectionne));
+        OnPropertyChanged(nameof(EloMinJoueurSelectionne));
+        OnPropertyChanged(nameof(EloMoyenJoueurSelectionne));
+    }
+
 
     public MainWindowViewModel()
     {
@@ -66,7 +99,7 @@ public partial class MainWindowViewModel : ViewModelBase
         // Initialiser les sélections des ComboBoxes des joueurs de partie après le chargement des parties et des joueurs
         // Si SelectedPartie est null (pas de parties ou première exécution) on ne fait rien.
         // Sinon, on initialise les ComboBoxes pour la partie déjà sélectionnée.
-        // Cela doit être fait après l'initialisation de Joueurs.
+        
         if (SelectedPartie != null) 
         {
             SelectedJoueurBlancComboBox = Joueurs.FirstOrDefault(j => j.Id == SelectedPartie.IdJoueurBlancs);

@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
 
 namespace CHESS.Models
 {
@@ -15,5 +16,8 @@ namespace CHESS.Models
 
         [ObservableProperty]
         private int _classementElo;
+
+        [ObservableProperty]
+        private List<int> listeElo = new List<int>();
     }
 }

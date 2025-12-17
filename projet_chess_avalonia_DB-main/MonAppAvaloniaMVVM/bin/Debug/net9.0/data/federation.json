@@ -4,37 +4,109 @@
       "Id": 1,
       "Nom": "Kasparov",
       "Prenom": "Garry",
-      "ClassementElo": 2800
+      "ClassementElo": 2800,
+      "ListeElo": [
+        2800,
+        2800,
+        2800,
+        2800,
+        2800,
+        2800,
+        2800,
+        2800,
+        2800,
+        2800
+      ]
     },
     {
       "Id": 2,
       "Nom": "Carlsenii",
       "Prenom": "Magnuskk",
-      "ClassementElo": 2832
+      "ClassementElo": 2832,
+      "ListeElo": [
+        2832,
+        2832,
+        2832,
+        2832,
+        2832,
+        2832,
+        2832,
+        2832,
+        2832,
+        2832
+      ]
     },
     {
       "Id": 3,
       "Nom": "ggm",
       "Prenom": "fbij,h,i",
-      "ClassementElo": 1200
+      "ClassementElo": 1090,
+      "ListeElo": [
+        1184,
+        1169,
+        1156,
+        1144,
+        1133,
+        1123,
+        1114,
+        1105,
+        1097,
+        1090
+      ]
     },
     {
       "Id": 4,
       "Nom": "jv",
       "Prenom": "uv",
-      "ClassementElo": 1200
+      "ClassementElo": 1310,
+      "ListeElo": [
+        1216,
+        1231,
+        1244,
+        1256,
+        1267,
+        1277,
+        1286,
+        1295,
+        1303,
+        1310
+      ]
     },
     {
       "Id": 5,
       "Nom": "bui",
       "Prenom": "fft",
-      "ClassementElo": 1200
+      "ClassementElo": 1200,
+      "ListeElo": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ]
     },
     {
       "Id": 6,
       "Nom": "efz",
       "Prenom": "fzf",
-      "ClassementElo": 1200
+      "ClassementElo": 1200,
+      "ListeElo": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ]
     }
   ],
   "Competitions": [

@@ -297,3 +297,4 @@ C:\Users\32497\Desktop\projet_chess_avalonia_DB-main\projet_chess_avalonia_DB-ma
 C:\Users\32497\Desktop\projet_chess_avalonia_DB-main\projet_chess_avalonia_DB-main\MonAppAvaloniaMVVM\obj\Debug\net9.0\CHESS.pdb
 C:\Users\32497\Desktop\projet_chess_avalonia_DB-main\projet_chess_avalonia_DB-main\MonAppAvaloniaMVVM\obj\Debug\net9.0\CHESS.genruntimeconfig.cache
 C:\Users\32497\Desktop\projet_chess_avalonia_DB-main\projet_chess_avalonia_DB-main\MonAppAvaloniaMVVM\obj\Debug\net9.0\ref\CHESS.dll
+C:\Users\32497\Desktop\projet_chess_avalonia_DB-main\projet_chess_avalonia_DB-main\MonAppAvaloniaMVVM\obj\Debug\net9.0\CHESS.sourcelink.json

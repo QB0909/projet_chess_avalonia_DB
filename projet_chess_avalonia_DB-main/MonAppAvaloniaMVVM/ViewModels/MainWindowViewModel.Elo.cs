@@ -76,12 +76,11 @@ public partial class MainWindowViewModel : ViewModelBase
             if (eloActuel.ContainsKey(joueur.Id))
             {
                 joueur.ClassementElo = eloActuel[joueur.Id];
+                joueur.ListeElo.Add(joueur.ClassementElo);
             }
         }
         
-        // Assurer que la UI des joueurs se met à jour
-        // En réassignant la collection ou en notifiant chaque joueur
-        // Puisque Joueur est ObservableObject, la modification directe de ClassementElo devrait suffire.
+       
 
         Console.WriteLine("Classements ELO recalculés !");
     }
