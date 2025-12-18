@@ -37,7 +37,7 @@ public partial class MainWindowViewModel : ViewModelBase
             SelectedJoueur = null;
         }
     }
-    private bool CanSupprimerJoueur() => SelectedJoueur != null && SelectedJoueur.Id != 0;
+    private bool CanSupprimerJoueur() => SelectedJoueur != null && SelectedJoueur.Id != 0; // on peut supprimer que si joueur sélectionné
 
     // Générateur d'ID Joueur
     private int GenererProchainIdJoueur()

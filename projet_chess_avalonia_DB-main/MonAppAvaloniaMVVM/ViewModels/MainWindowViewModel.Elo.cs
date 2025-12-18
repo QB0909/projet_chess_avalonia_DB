@@ -18,8 +18,8 @@ public partial class MainWindowViewModel : ViewModelBase
         // Cela est important pour que le calcul soit reproductible et non cumulatif si on le lance plusieurs fois.
         foreach (var joueur in Donnees.Joueurs)
         {
-            // Pour un exemple, on peut réinitialiser l'ELO à 1200 ou la valeur d'origine si on la stockait.
-            // Pour l'instant, nous prendrons la valeur de base si elle n'a pas encore été établie.
+            
+            
             if (joueur.ClassementElo == 0) joueur.ClassementElo = 1200; // Assurer un ELO de base si 0
         }
 
