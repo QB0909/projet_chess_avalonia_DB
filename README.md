@@ -7,7 +7,7 @@ Celui-ci entrera les informations manuellement dans l'application.
 La fonctionnalité suplémentaire que nous avons choisis est une page reprenant différentes statistiques tel que l'historique des Elos d'un joueur, son elo maximum, minimum et moyen. Nous faisons donc des requêtes dans un fichier nommé `data` afin de récupérer les données utiles à la page.
 
 ## Diagramme de Classe
-(images/image_classe.png)
+![Diagramme de Classe](images/image_classe.png)
 
 ## Diagramme de Séquences
 ![Diagramme de Séquences](images/image_sequences.png)
