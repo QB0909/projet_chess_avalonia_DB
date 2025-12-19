@@ -7,13 +7,13 @@ Celui-ci entrera les informations manuellement dans l'application.
 La fonctionnalité suplémentaire que nous avons choisis est une page reprenant différentes statistiques tel que l'historique des Elos d'un joueur, son elo maximum, minimum et moyen. Nous faisons donc des requêtes dans un fichier nommé `data` afin de récupérer les données utiles à la page.
 
 ## Diagramme de Classe
-![Diagramme de Classe](chemin/vers/image_classe.png)
+![Diagramme de Classe](images/image_classe.png)
 
 ## Diagramme de Séquences
-![Diagramme de Séquences](chemin/vers/image_sequences.png)
+![Diagramme de Séquences](images/image_sequences.png)
 
 ## Diagramme d'Activité
-![Diagramme d'Activité](chemin/vers/image_activite.png)
+![Diagramme d'Activité](images/image_activite.png)
 
 Le projet est moyennement adaptable à une autre fédération : les joueurs sont déterminés par la couleur de leurs pièces et leur niveau est déterminé par leur elo.
 Pour modifier l'appel des joueurs et leur classement il faudrait modifier le code déjà existant.
@@ -30,4 +30,5 @@ Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé e
 Nous respectons simplement le pattern MVVM.
 Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inverse.
 
-## En conclusion,
+En conclusion, 
+
