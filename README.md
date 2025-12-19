@@ -4,7 +4,11 @@ Dans le cadre du cours de Programmation orientée objet nous avons du faire un p
 Le projet est un logiciel destiné à gérer des matchs d’une fédération d’échecs et sera utilisé par le personnel administratif de la fédération.
 Celui-ci entrera les informations manuellement dans l'application.
 
-La fonctionnalité suplémentaire que nous avons choisis est une page reprenant différentes statistiques tel que l'historique des Elos d'un joueur, son elo maximum, minimum et moyen. Nous faisons donc des requêtes dans un fichier nommé `data` afin de récupérer les données utiles à la page.
+La fonctionnalité suplémentaire que nous avons choisis est une page reprenant différentes statistiques tel que l'historique des Elos d'un joueur, son elo maximum, minimum et moyen. Nous faisons donc des requêtes dans un fichier nommé `data` afin de récupérer les données utiles à la page, elles sont chargées depuis federation.json. Cet objet Donnees est situé le MainWindowViewModel.
+En résumé , cet onglet affiche une vue complète des performances ELO d'un joueur dans un tableau de statistique, en présentant son classement actuel, ses extrêmes (max/min), sa moyenne, et l'historique complet de ses scores.
+
+
+Pour le diagramme de séquences et d'activité nous choisissons  "l'ajout d'un nouveau joueur".
 
 ## Diagramme de Classe
 ![Diagramme de Classe](images/image_classe.png)
@@ -15,6 +19,10 @@ La fonctionnalité suplémentaire que nous avons choisis est une page reprenant 
 ## Diagramme d'Activité
 ![Diagramme d'Activité](images/image_activite.png)
 
+
+
+
+
 Le projet est moyennement adaptable à une autre fédération : les joueurs sont déterminés par la couleur de leurs pièces et leur niveau est déterminé par leur elo.
 Pour modifier l'appel des joueurs et leur classement il faudrait modifier le code déjà existant.
 Pour le reste, on pourrait l'adapter en ajoutant des scripts dans `ModelViews` et dans `Models` mais il faudra par contre modifier `MainWindow.axaml` directement.
@@ -24,14 +32,17 @@ Pour le reste, on pourrait l'adapter en ajoutant des scripts dans `ModelViews` e
 ### Single Responsibility Principle
 
 Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé en blocs ne faisant qu'une seule chose. Pour prendre un exemple, les Modèles n'ont qu'un seule responsabilité : représenter et  contenir les données.
-La classe Joueur ne fait rien d'autre que de stocker des informations sur un joueur (nom, ELO, historique ELO). Elle ne sait pas comment s'afficher à l'écran, ni comment être sauvegardée dans un fichier.
+Exemple de principe: La classe 'Joueur' ne fait rien d'autre que de stocker des informations sur un joueur (nom, ELO, historique ELO). Elle ne sait pas comment s'afficher à l'écran, ni comment être sauvegardée dans un fichier.
 
 ### Dependency Inversion Principle
 
-Nous respectons simplement le pattern MVVM.
-Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inverse.
+Nous respectons simplement le pattern MVVM,  Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau.
+Par exemple, L'interface `MainWindow.axaml` (=module de bas niveau) dépend du ViewModeld (=module de haut niveau) mais pas l'inverse. `MainWindow.axaml` se lie aux propriétés contenues dans ViewModel via ({Binding ...}).
 
+En résumé, le projet utilise SRP pour s'assurer que chaque classe fait une seule chose bien, et DIP   
+  (via le plan MVVM) pour s'assurer que les dépendances n'aillent que dans un sens et non mutuellement car cela causerait de la confusion.
 
+  
 
 ## Une justification de qualités d'adaptabilité de notre projet à une autre fédération:
 
@@ -49,5 +60,7 @@ Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inve
 
  Des interactions standards : On utilise des contrôles et des actions familiers (listes, formulaire, boutons "Ajouter", "Modifier" et "Supprimer"), ce qui rend le code adaptable pour n'importe quel Jeu/sport. Par exemple, il s'suffirait pour le tennis de remplacer les points "ELO" par "ATP" et de d'échanger la "victoire blanc/noir" par "victoire en 3 sets". 
   
-En conclusion, notre code 
-Aller Quentin travaille 
+## En conclusion
+Notre code visant à créer une application de gestion pour une fédération d'échecs a abouti à une solution fonctionnelle, robuste et remarquablement flexible. En
+  s'appuyant sur le framework Avalonia pour une interface utilisateur  et sur l'architecture MVVM (Modèle-Vue-ViewModel), l'application répond non
+  seulement aux besoins initiaux, mais peut etre amélioré pour des futurs évolutions.
