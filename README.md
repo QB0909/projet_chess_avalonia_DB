@@ -1,5 +1,7 @@
 # Rapport Projet Programmation Orientée Objet
 
+(Le code abouti se trouve dans la branche main)
+
 Dans le cadre du cours de Programmation orientée objet nous avons du faire un programme en c# afin d'exercer nos connaissances.
 Le projet est un logiciel destiné à gérer des matchs d’une fédération d’échecs et sera utilisé par le personnel administratif de la fédération.
 Celui-ci entrera les informations manuellement dans l'application.
