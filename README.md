@@ -31,5 +31,23 @@ La classe Joueur ne fait rien d'autre que de stocker des informations sur un jou
 Nous respectons simplement le pattern MVVM.
 Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inverse.
 
+
+
+## Une justification de qualités d'adaptabilité de notre projet à une autre fédération:
+
+  1. l'accès aux données grâce au JsonDataService
+
+  Un des deux points pour l'adaptabilité est que toute les fonctionnalités de lecture et d'écriture des données sont définies dans une seule classe : JsonDataService qui se trouve dans MonAppAvaloniaMVVM/Services/JsonDataService.cs.
+
+ Le reste de l'application (les vues et les ViewModels) ne sait pas comment les données sont stockées. Il sait seulement qu'il doit demander au JsonDataService de les lui fournir à partir du JSON qui est un format général.
+
+  2. l'interphace 
+
+  On peut pointer du doigts le fait est que notre application est simple d'utilisation et adaptable à d'autres sport.
+
+ Des mises à jour en temps réel : Grâce à l'architecture MVVM et aux ObservableCollection, n'importe quel modification comme l'ajout d'un joueur ou la mise à jour d'un score est instantanément appliqué dans toute l'application.
+
+ Des interactions standards : On utilise des contrôles et des actions familiers (listes, formulaire, boutons "Ajouter", "Modifier" et "Supprimer"), ce qui rend le code adaptable pour n'importe quel Jeu/sport. Par exemple, il s'suffirait pour le tennis de remplacer les points "ELO" par "ATP" et de d'échanger la "victoire blanc/noir" par "victoire en 3 sets". 
+  
 En conclusion, notre code 
 Aller Quentin travaille 
