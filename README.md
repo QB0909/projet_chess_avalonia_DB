@@ -39,16 +39,16 @@ titre -> Principes SOLID utilisés :
 
 sous titre -> Single Responsibility Principle
 
-Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé en blocs ne faisant qu'une seule chose. 
+paragraphe -> Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé en blocs ne faisant qu'une seule chose. 
 
 sous titre -> Dependency Inversion Principle
 
-Nous respectons simplement le pattern MVVM. 
-Par exemple, L'interface "MainWindow.axaml" dépend du ViewModel mais pas l'inverse. 
+paragraphe -> Nous respectons simplement le pattern MVVM. 
+              Par exemple, L'interface "MainWindow.axaml" dépend du ViewModel mais pas l'inverse. 
   
 
 
-En conclusion, 
+paragraphe -> En conclusion, 
 
 
 
