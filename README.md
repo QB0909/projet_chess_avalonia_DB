@@ -43,7 +43,8 @@ Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé e
 
 sous titre -> Dependency Inversion Principle
 
-L'interface et donc "MainWindow.axaml" dépend du ViewModel mais pas l'inverse. 
+Nous respectons simplement le pattern MVVM. 
+L'interface donc "MainWindow.axaml" dépend du ViewModel mais pas l'inverse. 
   
 
 
