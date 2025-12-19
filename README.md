@@ -23,7 +23,8 @@ Pour le reste, on pourrait l'adapter en ajoutant des scripts dans `ModelViews` e
 
 ### Single Responsibility Principle
 
-Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé en blocs ne faisant qu'une seule chose.
+Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé en blocs ne faisant qu'une seule chose. Pour prendre un exemple, les Modèles n'ont qu'un seule responsabilité : représenter et  contenir les données.
+La classe Joueur ne fait rien d'autre que de stocker des informations sur un joueur (nom, ELO, historique ELO). Elle ne sait pas comment s'afficher à l'écran, ni comment être sauvegardée dans un fichier.
 
 ### Dependency Inversion Principle
 
@@ -31,3 +32,4 @@ Nous respectons simplement le pattern MVVM.
 Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inverse.
 
 En conclusion, notre code 
+Aller Quentin travaille 
