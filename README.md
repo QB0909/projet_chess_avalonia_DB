@@ -30,5 +30,4 @@ Chaque classe ou méthode n'a qu'une seule fonctionnalité, tout est découpé e
 Nous respectons simplement le pattern MVVM.
 Par exemple, L'interface `MainWindow.axaml` dépend du ViewModel mais pas l'inverse.
 
-En conclusion, 
-
+En conclusion, notre code 
